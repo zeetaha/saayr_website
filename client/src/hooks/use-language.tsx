@@ -131,7 +131,7 @@ const translations: Record<Language, Record<string, string>> = {
     "cta.description": "كن أول من يعرف عند إطلاقنا في مدينتك. أعضاء الوصول المبكر يحصلون على",
     "cta.boost": "دفعة المستوى 5",
     "cta.dayOne": "من أول يوم.",
-    "footer.copyright": "جميع الحقوق محفوظة. صنع بروقان في الرياض.",
+    "footer.copyright": "جميع الحقوق محفوظة. صُنع بروقان في الرياض.",
     "form.forYou": "لك",
     "form.forBusiness": "للشركات",
     "form.emailPlaceholder": "أدخل بريدك الإلكتروني...",
