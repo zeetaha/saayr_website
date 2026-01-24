@@ -11,12 +11,35 @@ import {
   Smartphone,
   Sparkles
 } from "lucide-react";
+import saayrLogo from "@assets/Saayr_1769283861756.png";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] overflow-x-hidden font-sans text-foreground">
+    <div className="min-h-screen bg-background overflow-x-hidden font-sans text-foreground">
+      {/* --- FIXED HEADER --- */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+        <div className="container max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src={saayrLogo} alt="Saayr" className="w-10 h-10 rounded-lg object-cover" />
+            <span className="font-display font-bold text-foreground text-xl tracking-tight">Saayr</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+            <a href="#what" className="hover:text-foreground transition-colors">About</a>
+            <a href="#how" className="hover:text-foreground transition-colors">How It Works</a>
+            <a href="#join" className="hover:text-foreground transition-colors">For Business</a>
+          </nav>
+          <a 
+            href="#join" 
+            className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors"
+            data-testid="button-join-header"
+          >
+            Join Waitlist
+          </a>
+        </div>
+      </header>
+
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden pt-20 pb-20">
+      <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden pt-28 pb-20">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
@@ -121,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* --- WHAT IS SAAYR --- */}
-      <AnimatedSection className="bg-white">
+      <AnimatedSection id="what" className="bg-white">
         <div className="container max-w-5xl mx-auto px-4 text-center">
           <span className="text-accent font-semibold tracking-wider uppercase text-sm">Our Philosophy</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-8">More than just "Points"</h2>
@@ -151,7 +174,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* --- HOW IT WORKS (Horizontal Scroll / Steps) --- */}
-      <AnimatedSection className="bg-secondary/30">
+      <AnimatedSection id="how" className="bg-secondary/30">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">The Journey</h2>
@@ -266,10 +289,8 @@ export default function Home() {
       {/* --- FOOTER --- */}
       <footer className="bg-foreground text-white/50 py-12 border-t border-white/10">
         <div className="container max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-foreground font-bold font-display text-xl">
-              S
-            </div>
+          <div className="flex items-center gap-3">
+            <img src={saayrLogo} alt="Saayr" className="w-10 h-10 rounded-lg object-cover" />
             <span className="font-display font-bold text-white text-lg tracking-tight">Saayr</span>
           </div>
           <div className="text-sm">
