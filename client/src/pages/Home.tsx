@@ -98,7 +98,7 @@ export default function Home() {
             <FadeIn delay={0.4} className={`flex flex-col items-center ${isRTL ? 'lg:items-end' : 'lg:items-start'}`}>
               <WaitlistForm className="max-w-md w-full" />
               <p className="text-sm text-muted-foreground mt-4">
-                {t("hero.earlyExplorers")} • {t("hero.noSpam")}
+                {t("hero.earlyExplorers")}
               </p>
             </FadeIn>
           </div>
