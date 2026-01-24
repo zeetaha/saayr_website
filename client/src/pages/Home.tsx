@@ -377,6 +377,9 @@ export default function Home() {
             <SocialIcon href="mailto:Info@saayr.sa" icon={<Mail className="w-4 h-4" />} testId="link-email" />
           </div>
         </div>
+        <div className="text-center mt-10 text-xs text-white/40 relative z-10">
+          {isRTL ? "صنع بروقان" : "Made by Roqan"}
+        </div>
       </footer>
     </div>
   );
