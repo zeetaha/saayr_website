@@ -79,7 +79,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.howItWorks": "كيف يعمل",
     "nav.forBusiness": "للشركات",
     "nav.joinWaitlist": "انضم للقائمة",
-    "hero.badge": "بنبدا بالرياض",
+    "hero.badge": "بالرياض",
     "hero.headline1": "سيّر علينا",
     "hero.headline2": "وجمع مكافآت",
     "hero.description": "حوّل زياراتك ولحظاتك الحقيقية إلى نقاط خبرة ومستويات ومكافآت.",
