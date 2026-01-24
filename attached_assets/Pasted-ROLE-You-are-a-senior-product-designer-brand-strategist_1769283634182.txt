@@ -1,0 +1,170 @@
+ROLE:
+You are a senior product designer, brand strategist, and frontend engineer working on a high-end startup landing page.
+
+PROJECT:
+Build a perfect, production-ready landing page for a startup called Saayr.
+
+ABOUT SAAYR:
+Saayr is a Saudi-based rewards and engagement platform built around presence, community, and real-world interaction.
+
+The name Saayr in Arabic means:
+
+“Come over”
+
+Friendly, welcoming, community-driven
+
+Being present, showing up, checking in
+
+Saayr turns check-ins, on-time actions, and participation into:
+
+XP
+
+Points
+
+Levels
+
+Rewards
+
+It connects users and companies through meaningful engagement — not spam, not discounts only, but real participation.
+
+TARGET AUDIENCE:
+
+End users (young, mobile-first, social, Saudi audience)
+
+Businesses & brands (cafés, gyms, events, communities, companies)
+
+GOAL OF THE LANDING PAGE:
+
+Clearly communicate Saayr’s values and vision
+
+Explain what Saayr is in under 10 seconds
+
+Build trust and credibility
+
+Make users and companies want to join / contact / waitlist
+
+TONE & BRAND FEEL:
+
+Modern, premium, clean
+
+Warm, social, human
+
+Confident but not corporate
+
+Community-first, not salesy
+
+DESIGN REQUIREMENTS:
+
+Minimal, elegant UI
+
+Soft gradients or neutral backgrounds
+
+Plenty of whitespace
+
+Rounded cards and buttons
+
+Subtle animations (hover, fade-in, scroll)
+
+Mobile-first and fully responsive
+
+TECH REQUIREMENTS:
+
+Use HTML, CSS, and JavaScript only (no frameworks unless absolutely needed)
+
+Clean, well-structured code
+
+Comment the code clearly
+
+Ready to deploy as-is
+
+PAGE SECTIONS (IN THIS ORDER):
+
+Hero Section
+
+Clear headline (short, emotional, powerful)
+
+One-sentence value proposition
+
+Primary CTA (Join Waitlist / Get Early Access)
+
+Secondary CTA (For Businesses)
+
+What is Saayr
+
+Simple explanation in human language
+
+Focus on “show up → engage → get rewarded”
+
+How It Works
+
+3–4 steps with icons
+
+Check in → Earn XP → Level up → Get rewards
+
+Why Saayr (Values)
+
+Community
+
+Presence
+
+Fair rewards
+
+Real-world engagement
+
+For Users
+
+What users gain
+
+Fun, social, rewarding
+
+For Businesses
+
+How companies benefit
+
+Loyalty, engagement, real traffic
+
+Trust Section
+
+“Built in Saudi Arabia”
+
+Privacy-first
+
+Secure & transparent
+
+Call to Action
+
+Strong emotional close
+
+Email input or button
+
+Footer
+
+Brand name
+
+Short tagline
+
+Links (Privacy Policy, Terms, Contact)
+
+CONTENT RULES:
+
+Avoid buzzwords
+
+No generic startup clichés
+
+Copy must feel intentional and human
+
+Short sentences. Clear meaning.
+
+OUTPUT:
+
+Generate the full HTML file
+
+Include embedded CSS and JS
+
+Make it visually impressive without external assets
+
+The result should feel like a real funded startup website, not a template
+
+IMPORTANT:
+Treat this as Saayr’s public face.
+The landing page must feel memorable, warm, and premium.
