@@ -10,8 +10,10 @@ import {
   Heart, 
   Store,
   Sparkles,
-  Globe
+  Globe,
+  Mail
 } from "lucide-react";
+import { SiX, SiInstagram } from "react-icons/si";
 import saayrLogo from "@assets/Saayr_1769283861756.png";
 
 export default function Home() {
@@ -311,10 +313,28 @@ export default function Home() {
           <div className="text-sm">
             © {new Date().getFullYear()} {isRTL ? "سيّر" : "Saayr"}. {t("footer.copyright")}
           </div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Twitter</a>
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+          <div className="flex gap-4">
+            <a 
+              href="#" 
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
+              data-testid="link-twitter"
+            >
+              <SiX className="w-4 h-4" />
+            </a>
+            <a 
+              href="#" 
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
+              data-testid="link-instagram"
+            >
+              <SiInstagram className="w-4 h-4" />
+            </a>
+            <a 
+              href="#" 
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
+              data-testid="link-contact"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </footer>
