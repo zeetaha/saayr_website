@@ -15,7 +15,7 @@ import {
   ArrowRight,
   Check
 } from "lucide-react";
-import { SiX, SiInstagram, SiLinkedin, SiTiktok } from "react-icons/si";
+import { SiX, SiInstagram, SiLinkedin, SiTiktok, SiAppstore, SiGoogleplay } from "react-icons/si";
 import saayrLogo from "@assets/Saayr_1769283861756.png";
 
 export default function Home() {
@@ -376,6 +376,22 @@ export default function Home() {
             <SocialIcon href="https://www.linkedin.com/company/saayr" icon={<SiLinkedin className="w-4 h-4" />} testId="link-linkedin" />
             <SocialIcon href="mailto:Info@saayr.sa" icon={<Mail className="w-4 h-4" />} testId="link-email" />
           </div>
+        </div>
+        <div className="flex justify-center gap-4 mt-8 relative z-10">
+          <a href="#" className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-300" data-testid="link-appstore">
+            <SiAppstore className="w-6 h-6 text-white" />
+            <div className="text-left">
+              <div className="text-[10px] text-white/60">{isRTL ? "حمّل من" : "Download on"}</div>
+              <div className="text-sm font-semibold text-white">App Store</div>
+            </div>
+          </a>
+          <a href="#" className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-300" data-testid="link-playstore">
+            <SiGoogleplay className="w-6 h-6 text-white" />
+            <div className="text-left">
+              <div className="text-[10px] text-white/60">{isRTL ? "حمّل من" : "Get it on"}</div>
+              <div className="text-sm font-semibold text-white">Google Play</div>
+            </div>
+          </a>
         </div>
       </footer>
     </div>
