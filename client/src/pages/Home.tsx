@@ -13,7 +13,7 @@ import {
   Globe,
   Mail
 } from "lucide-react";
-import { SiX, SiInstagram, SiLinkedin } from "react-icons/si";
+import { SiX, SiInstagram, SiLinkedin, SiTiktok } from "react-icons/si";
 import saayrLogo from "@assets/Saayr_1769283861756.png";
 
 export default function Home() {
@@ -315,21 +315,36 @@ export default function Home() {
           </div>
           <div className="flex gap-4">
             <a 
-              href="#" 
+              href="https://x.com/saayrapp" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
               data-testid="link-twitter"
             >
               <SiX className="w-4 h-4" />
             </a>
             <a 
-              href="#" 
+              href="https://www.instagram.com/saayrapp/" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
               data-testid="link-instagram"
             >
               <SiInstagram className="w-4 h-4" />
             </a>
             <a 
-              href="#" 
+              href="https://www.tiktok.com/@saayrapp" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
+              data-testid="link-tiktok"
+            >
+              <SiTiktok className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/saayr" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
               data-testid="link-linkedin"
             >
