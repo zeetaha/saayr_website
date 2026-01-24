@@ -1,5 +1,6 @@
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { AnimatedSection, FadeIn } from "@/components/AnimatedSection";
+import { useLanguage } from "@/hooks/use-language";
 import { 
   MapPin, 
   Trophy, 
@@ -8,33 +9,47 @@ import {
   ShieldCheck, 
   Heart, 
   Store,
-  Smartphone,
-  Sparkles
+  Sparkles,
+  Globe
 } from "lucide-react";
 import saayrLogo from "@assets/Saayr_1769283861756.png";
 
 export default function Home() {
+  const { t, language, setLanguage, isRTL } = useLanguage();
+
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden font-sans text-foreground">
+    <div className={`min-h-screen bg-background overflow-x-hidden text-foreground ${isRTL ? 'font-arabic' : 'font-sans'}`}>
       {/* --- FIXED HEADER --- */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-        <div className="container max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="container max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img src={saayrLogo} alt="Saayr" className="w-10 h-10 rounded-lg object-cover" />
-            <span className="font-display font-bold text-foreground text-xl tracking-tight">Saayr</span>
+            <span className="font-display font-bold text-foreground text-xl tracking-tight">
+              {isRTL ? "ساير" : "Saayr"}
+            </span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <a href="#what" className="hover:text-foreground transition-colors">About</a>
-            <a href="#how" className="hover:text-foreground transition-colors">How It Works</a>
-            <a href="#join" className="hover:text-foreground transition-colors">For Business</a>
+            <a href="#what" className="hover:text-foreground transition-colors">{t("nav.about")}</a>
+            <a href="#how" className="hover:text-foreground transition-colors">{t("nav.howItWorks")}</a>
+            <a href="#join" className="hover:text-foreground transition-colors">{t("nav.forBusiness")}</a>
           </nav>
-          <a 
-            href="#join" 
-            className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors"
-            data-testid="button-join-header"
-          >
-            Join Waitlist
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setLanguage(language === "en" ? "ar" : "en")}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors"
+              data-testid="button-language-toggle"
+            >
+              <Globe className="w-4 h-4" />
+              {language === "en" ? "العربية" : "English"}
+            </button>
+            <a 
+              href="#join" 
+              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors"
+              data-testid="button-join-header"
+            >
+              {t("nav.joinWaitlist")}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -56,68 +71,67 @@ export default function Home() {
         </div>
 
         <div className="container max-w-6xl mx-auto relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="text-center lg:text-left">
+          <div className={`text-center ${isRTL ? 'lg:text-right' : 'lg:text-left'}`}>
             <FadeIn delay={0.1}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
+              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6`}>
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                 </span>
-                Launching Soon in KSA
+                {t("hero.badge")}
               </div>
             </FadeIn>
             
             <FadeIn delay={0.2}>
               <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
-                Come over. <br/>
-                <span className="gradient-text">Get Rewarded.</span>
+                {t("hero.headline1")} <br/>
+                <span className="gradient-text">{t("hero.headline2")}</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-balance max-w-2xl mx-auto lg:mx-0">
-                Turns your check-ins and real-world moments into XP, Levels, and rewards that actually matter.
+              <p className={`text-xl md:text-2xl text-muted-foreground mb-8 text-balance max-w-2xl ${isRTL ? 'mx-auto lg:mr-0 lg:ml-auto' : 'mx-auto lg:mx-0'}`}>
+                {t("hero.description")}
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.4} className="flex flex-col items-center lg:items-start">
+            <FadeIn delay={0.4} className={`flex flex-col items-center ${isRTL ? 'lg:items-end' : 'lg:items-start'}`}>
               <WaitlistForm className="max-w-md w-full" />
               <p className="text-sm text-muted-foreground mt-4">
-                Join 2,000+ early explorers • No spam, ever.
+                {t("hero.earlyExplorers")} • {t("hero.noSpam")}
               </p>
             </FadeIn>
           </div>
 
           <FadeIn delay={0.5} className="relative hidden lg:block">
-            {/* Phone/App Mockup Placeholder */}
-            <div className="relative z-10 w-[320px] mx-auto rotate-[-6deg] hover:rotate-0 transition-transform duration-500">
+            {/* Phone/App Mockup */}
+            <div className={`relative z-10 w-[320px] mx-auto ${isRTL ? 'rotate-[6deg] hover:rotate-0' : 'rotate-[-6deg] hover:rotate-0'} transition-transform duration-500`}>
                {/* Decorative floating elements */}
-               <div className="absolute -right-12 top-20 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '3s' }}>
+               <div className={`absolute ${isRTL ? '-left-12' : '-right-12'} top-20 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce`} style={{ animationDuration: '3s' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                       <Trophy className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold">+500 XP</div>
-                      <div className="text-xs text-muted-foreground">Level Up!</div>
+                      <div className="text-sm font-bold">{t("phone.xp")}</div>
+                      <div className="text-xs text-muted-foreground">{t("phone.levelUp")}</div>
                     </div>
                   </div>
                </div>
 
-               <div className="absolute -left-8 bottom-32 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+               <div className={`absolute ${isRTL ? '-right-8' : '-left-8'} bottom-32 bg-white p-4 rounded-2xl shadow-xl z-20 animate-bounce`} style={{ animationDuration: '4s', animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
                       <MapPin className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold">Checked In</div>
-                      <div className="text-xs text-muted-foreground">At The Coffee Club</div>
+                      <div className="text-sm font-bold">{t("phone.checkedIn")}</div>
+                      <div className="text-xs text-muted-foreground">{t("phone.location")}</div>
                     </div>
                   </div>
                </div>
 
                {/* Main Card Image */}
-               {/* Unsplash abstract phone/app concept */}
                <div className="w-full aspect-[9/19] bg-black rounded-[3rem] p-3 shadow-2xl border-4 border-gray-900 overflow-hidden relative">
                  <div className="absolute top-0 left-0 right-0 h-6 bg-black z-20 rounded-t-[2.5rem] flex justify-center">
                     <div className="w-20 h-4 bg-gray-800 rounded-b-xl"></div>
@@ -125,8 +139,8 @@ export default function Home() {
                  {/* Placeholder UI */}
                  <div className="w-full h-full bg-background rounded-[2.2rem] overflow-hidden flex flex-col">
                     <div className="h-1/2 bg-gradient-to-br from-primary/20 to-primary/5 p-6 flex flex-col justify-end">
-                      <h3 className="text-3xl font-display font-bold text-foreground mb-1">Hello, Sara!</h3>
-                      <p className="text-muted-foreground mb-4">Level 5 Explorer</p>
+                      <h3 className="text-3xl font-display font-bold text-foreground mb-1">{t("phone.greeting")}</h3>
+                      <p className="text-muted-foreground mb-4">{t("phone.level")}</p>
                       <div className="w-full h-2 bg-white/50 rounded-full overflow-hidden">
                         <div className="w-[70%] h-full bg-primary rounded-full"></div>
                       </div>
@@ -146,39 +160,38 @@ export default function Home() {
       {/* --- WHAT IS SAAYR --- */}
       <AnimatedSection id="what" className="bg-white">
         <div className="container max-w-5xl mx-auto px-4 text-center">
-          <span className="text-accent font-semibold tracking-wider uppercase text-sm">Our Philosophy</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-8">More than just "Points"</h2>
+          <span className="text-primary font-semibold tracking-wider uppercase text-sm">{t("what.label")}</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-8">{t("what.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-16 leading-relaxed">
-            "Saayr" isn't just an app name. It's an invitation. It means <span className="text-foreground font-semibold">"coming over"</span> or passing by. 
-            We believe that showing up matters. We're building a world where your presence creates value—for you, your favorite spots, and your community.
+            {t("what.description")}
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
             <FeatureCard 
               icon={<MapPin className="w-8 h-8 text-primary" />}
-              title="Show Up"
-              description="Check in at local spots, events, and hidden gems around Saudi Arabia."
+              title={t("what.showUp.title")}
+              description={t("what.showUp.description")}
             />
             <FeatureCard 
-              icon={<TrendingUp className="w-8 h-8 text-accent" />}
-              title="Engage"
-              description="Leave reviews, share photos, and complete challenges to boost your status."
+              icon={<TrendingUp className="w-8 h-8 text-primary" />}
+              title={t("what.engage.title")}
+              description={t("what.engage.description")}
             />
             <FeatureCard 
-              icon={<Sparkles className="w-8 h-8 text-orange-500" />}
-              title="Get Rewarded"
-              description="Unlock exclusive perks, freebies, and VIP status at places you love."
+              icon={<Sparkles className="w-8 h-8 text-primary" />}
+              title={t("what.rewarded.title")}
+              description={t("what.rewarded.description")}
             />
           </div>
         </div>
       </AnimatedSection>
 
-      {/* --- HOW IT WORKS (Horizontal Scroll / Steps) --- */}
+      {/* --- HOW IT WORKS --- */}
       <AnimatedSection id="how" className="bg-secondary/30">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">The Journey</h2>
-            <p className="text-lg text-muted-foreground">From explorer to local legend in three steps.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("how.title")}</h2>
+            <p className="text-lg text-muted-foreground">{t("how.subtitle")}</p>
           </div>
 
           <div className="relative">
@@ -186,18 +199,18 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-12 relative z-10">
               <StepCard 
                 number="1"
-                title="Download & Explore"
-                description="Find hot spots near you. From cozy cafes in Riyadh to beach resorts in Jeddah."
+                title={t("how.step1.title")}
+                description={t("how.step1.description")}
               />
               <StepCard 
                 number="2"
-                title="Collect XP"
-                description="Every check-in and interaction earns you Experience Points. Watch your level grow."
+                title={t("how.step2.title")}
+                description={t("how.step2.description")}
               />
               <StepCard 
                 number="3"
-                title="Redeem & Enjoy"
-                description="Turn your levels into free coffee, discounts, or exclusive access."
+                title={t("how.step3.title")}
+                description={t("how.step3.description")}
               />
             </div>
           </div>
@@ -212,14 +225,14 @@ export default function Home() {
               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-8 text-primary">
                 <Users className="w-8 h-8" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">For Explorers</h3>
+              <h3 className="text-3xl font-bold mb-4">{t("audience.explorers.title")}</h3>
               <ul className="space-y-4 mb-8">
-                <ListItem>Discover hidden gems in your city</ListItem>
-                <ListItem>Socialize and compete with friends</ListItem>
-                <ListItem>Earn rewards for doing what you love</ListItem>
+                <ListItem>{t("audience.explorers.item1")}</ListItem>
+                <ListItem>{t("audience.explorers.item2")}</ListItem>
+                <ListItem>{t("audience.explorers.item3")}</ListItem>
               </ul>
               <a href="#join" className="font-semibold text-primary hover:text-primary/80 flex items-center gap-2">
-                Start your journey <ArrowRight className="w-4 h-4" />
+                {t("audience.explorers.cta")} <ArrowRight className="w-4 h-4" />
               </a>
             </div>
 
@@ -227,14 +240,14 @@ export default function Home() {
                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-8 text-accent">
                 <Store className="w-8 h-8" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">For Businesses</h3>
+              <h3 className="text-3xl font-bold mb-4">{t("audience.business.title")}</h3>
               <ul className="space-y-4 mb-8">
-                <ListItem>Drive real foot traffic, not just clicks</ListItem>
-                <ListItem>Build loyal communities</ListItem>
-                <ListItem>Gamify your customer experience</ListItem>
+                <ListItem>{t("audience.business.item1")}</ListItem>
+                <ListItem>{t("audience.business.item2")}</ListItem>
+                <ListItem>{t("audience.business.item3")}</ListItem>
               </ul>
               <a href="#join" className="font-semibold text-accent hover:text-accent/80 flex items-center gap-2">
-                Partner with us <ArrowRight className="w-4 h-4" />
+                {t("audience.business.cta")} <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -244,42 +257,42 @@ export default function Home() {
       {/* --- VALUES & TRUST --- */}
       <AnimatedSection className="bg-white text-center">
         <div className="container max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12">Built with Integrity</h2>
+          <h2 className="text-3xl font-bold mb-12">{t("trust.title")}</h2>
           <div className="grid md:grid-cols-3 gap-8">
              <div className="p-6">
                 <div className="mx-auto w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 text-gray-700">
                    <ShieldCheck className="w-6 h-6" />
                 </div>
-                <h4 className="font-bold mb-2">Privacy First</h4>
-                <p className="text-sm text-muted-foreground">Your location data is yours. We only use check-ins you actively choose to share.</p>
+                <h4 className="font-bold mb-2">{t("trust.privacy.title")}</h4>
+                <p className="text-sm text-muted-foreground">{t("trust.privacy.description")}</p>
              </div>
              <div className="p-6">
                 <div className="mx-auto w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 text-gray-700">
                    <Heart className="w-6 h-6" />
                 </div>
-                <h4 className="font-bold mb-2">Community Driven</h4>
-                <p className="text-sm text-muted-foreground">Designed to bring people together in the real world, not keep them scrolling.</p>
+                <h4 className="font-bold mb-2">{t("trust.community.title")}</h4>
+                <p className="text-sm text-muted-foreground">{t("trust.community.description")}</p>
              </div>
              <div className="p-6">
                 <div className="mx-auto w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center mb-4 text-gray-700">
                    <MapPin className="w-6 h-6" />
                 </div>
-                <h4 className="font-bold mb-2">Proudly Saudi</h4>
-                <p className="text-sm text-muted-foreground">Built in KSA, for KSA. We understand the local culture and hospitality.</p>
+                <h4 className="font-bold mb-2">{t("trust.saudi.title")}</h4>
+                <p className="text-sm text-muted-foreground">{t("trust.saudi.description")}</p>
              </div>
           </div>
         </div>
       </AnimatedSection>
 
       {/* --- FINAL CTA --- */}
-      <section id="join" className="py-24 md:py-32 bg-foreground text-background relative overflow-hidden">
+      <section id="join" className="py-24 md:py-32 bg-primary relative overflow-hidden">
         {/* Abstract shapes */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
         
         <div className="container max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Ready to start earning?</h2>
-          <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-2xl mx-auto">
-            Be the first to know when we launch in your city. Early access members get a <span className="text-primary font-bold">Level 5 Boost</span> on day one.
+          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">{t("cta.title")}</h2>
+          <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl mx-auto">
+            {t("cta.description")} <span className="text-accent font-bold">{t("cta.boost")}</span> {t("cta.dayOne")}
           </p>
           
           <WaitlistForm variant="footer" className="max-w-md mx-auto" />
@@ -291,10 +304,12 @@ export default function Home() {
         <div className="container max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
             <img src={saayrLogo} alt="Saayr" className="w-10 h-10 rounded-lg object-cover" />
-            <span className="font-display font-bold text-white text-lg tracking-tight">Saayr</span>
+            <span className="font-display font-bold text-white text-lg tracking-tight">
+              {isRTL ? "ساير" : "Saayr"}
+            </span>
           </div>
           <div className="text-sm">
-            © {new Date().getFullYear()} Saayr. All rights reserved. Built with ❤️ in Riyadh.
+            © {new Date().getFullYear()} {isRTL ? "ساير" : "Saayr"}. {t("footer.copyright")}
           </div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Twitter</a>
@@ -342,7 +357,6 @@ function ListItem({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Re-export arrow right since it's used inline
 function ArrowRight({ className }: { className?: string }) {
   return (
     <svg 

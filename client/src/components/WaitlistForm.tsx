@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertWaitlistSchema, type InsertWaitlist } from "@shared/schema";
 import { useCreateWaitlistEntry } from "@/hooks/use-waitlist";
+import { useLanguage } from "@/hooks/use-language";
 import { Loader2, ArrowRight, Building2, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -16,6 +17,7 @@ interface WaitlistFormProps {
 export function WaitlistForm({ defaultRole = "user", className, variant = "hero" }: WaitlistFormProps) {
   const [role, setRole] = useState<"user" | "business">(defaultRole);
   const { mutate, isPending, isSuccess } = useCreateWaitlistEntry();
+  const { t } = useLanguage();
   
   const form = useForm<InsertWaitlist>({
     resolver: zodResolver(insertWaitlistSchema),
@@ -39,11 +41,11 @@ export function WaitlistForm({ defaultRole = "user", className, variant = "hero"
           variant === "hero" ? "bg-white/80 backdrop-blur-sm border border-white/50" : "bg-primary/10"
         )}
       >
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <span className="text-3xl">👋</span>
+        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span className="text-3xl text-primary">✓</span>
         </div>
-        <h3 className="text-xl font-bold text-foreground mb-2">Welcome to Saayr!</h3>
-        <p className="text-muted-foreground">We've saved your spot. Get ready to start earning.</p>
+        <h3 className="text-xl font-bold text-foreground mb-2">{t("form.success.title")}</h3>
+        <p className="text-muted-foreground">{t("form.success.description")}</p>
       </motion.div>
     );
   }
@@ -63,7 +65,7 @@ export function WaitlistForm({ defaultRole = "user", className, variant = "hero"
           )}
         >
           <User className="w-4 h-4" />
-          For You
+          {t("form.forYou")}
         </button>
         <button
           type="button"
@@ -76,7 +78,7 @@ export function WaitlistForm({ defaultRole = "user", className, variant = "hero"
           )}
         >
           <Building2 className="w-4 h-4" />
-          For Business
+          {t("form.forBusiness")}
         </button>
       </div>
 
@@ -84,7 +86,7 @@ export function WaitlistForm({ defaultRole = "user", className, variant = "hero"
         <div className="relative flex-1 group">
           <input
             {...form.register("email")}
-            placeholder={role === "user" ? "Enter your email..." : "Business email..."}
+            placeholder={role === "user" ? t("form.emailPlaceholder") : t("form.businessEmailPlaceholder")}
             className={cn(
               "w-full h-12 md:h-14 px-5 rounded-xl bg-white border-2 border-transparent transition-all duration-200",
               "placeholder:text-muted-foreground/70 text-foreground",
@@ -123,7 +125,7 @@ export function WaitlistForm({ defaultRole = "user", className, variant = "hero"
             <Loader2 className="w-5 h-5 animate-spin" />
           ) : (
             <>
-              Join Waitlist
+              {t("form.joinWaitlist")}
               <ArrowRight className="w-5 h-5" />
             </>
           )}
