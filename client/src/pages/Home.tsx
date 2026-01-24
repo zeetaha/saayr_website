@@ -13,7 +13,7 @@ import {
   Globe,
   Mail
 } from "lucide-react";
-import { SiX, SiInstagram } from "react-icons/si";
+import { SiX, SiInstagram, SiLinkedin } from "react-icons/si";
 import saayrLogo from "@assets/Saayr_1769283861756.png";
 
 export default function Home() {
@@ -331,7 +331,14 @@ export default function Home() {
             <a 
               href="#" 
               className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
-              data-testid="link-contact"
+              data-testid="link-linkedin"
+            >
+              <SiLinkedin className="w-4 h-4" />
+            </a>
+            <a 
+              href="mailto:Info@saayr.sa" 
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-white transition-all duration-300 hover:scale-110"
+              data-testid="link-email"
             >
               <Mail className="w-4 h-4" />
             </a>
