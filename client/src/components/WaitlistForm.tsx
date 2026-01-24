@@ -113,7 +113,7 @@ export function WaitlistForm({ defaultRole = "user", className, variant = "hero"
           disabled={isPending}
           className={cn(
             "h-12 md:h-14 px-8 rounded-xl font-bold whitespace-nowrap",
-            "bg-gradient-to-r from-primary to-orange-500 text-white",
+            "bg-primary text-white",
             "shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5",
             "active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
             "transition-all duration-200 flex items-center justify-center gap-2"
