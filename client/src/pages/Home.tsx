@@ -286,21 +286,6 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      {/* --- FINAL CTA --- */}
-      <section id="join" className="py-24 md:py-32 bg-primary relative overflow-hidden">
-        {/* Abstract shapes */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
-        
-        <div className="container max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">{t("cta.title")}</h2>
-          <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl mx-auto">
-            {t("cta.description")} <span className="text-accent font-bold">{t("cta.boost")}</span> {t("cta.dayOne")}
-          </p>
-          
-          <WaitlistForm variant="footer" className="max-w-md mx-auto" />
-        </div>
-      </section>
-
       {/* --- FOOTER --- */}
       <footer className="bg-foreground text-white/50 py-12 border-t border-white/10">
         <div className="container max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
