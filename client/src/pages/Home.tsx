@@ -25,7 +25,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <img src={saayrLogo} alt="Saayr" className="w-10 h-10 rounded-lg object-cover" />
             <span className="font-display font-bold text-foreground text-xl tracking-tight">
-              {isRTL ? "ساير" : "Saayr"}
+              {isRTL ? "سيّر" : "Saayr"}
             </span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
@@ -305,11 +305,11 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <img src={saayrLogo} alt="Saayr" className="w-10 h-10 rounded-lg object-cover" />
             <span className="font-display font-bold text-white text-lg tracking-tight">
-              {isRTL ? "ساير" : "Saayr"}
+              {isRTL ? "سيّر" : "Saayr"}
             </span>
           </div>
           <div className="text-sm">
-            © {new Date().getFullYear()} {isRTL ? "ساير" : "Saayr"}. {t("footer.copyright")}
+            © {new Date().getFullYear()} {isRTL ? "سيّر" : "Saayr"}. {t("footer.copyright")}
           </div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Twitter</a>
