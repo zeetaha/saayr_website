@@ -81,7 +81,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.joinWaitlist": "انضم للقائمة",
     "hero.badge": "بنبدا بالرياض",
     "hero.headline1": "سيّر علينا",
-    "hero.headline2": "وجمع مكافآت",
+    "hero.headline2": "وجمّع مكافآت",
     "hero.description": "حوّل زياراتك ولحظاتك الحقيقية إلى نقاط خبرة ومستويات ومكافآت.",
     "hero.earlyExplorers": "انضم إلى +2,000 مستكشف",
     "hero.noSpam": "",
