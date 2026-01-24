@@ -32,6 +32,10 @@ const translations: Record<Language, Record<string, string>> = {
     "what.rewarded.description": "Unlock exclusive perks, freebies, and VIP status at places you love.",
     "how.title": "The Journey",
     "how.subtitle": "From explorer to local legend in three steps.",
+    "how.label": "The Journey",
+    "audience.label": "Who It's For",
+    "audience.mainTitle": "Built for Everyone",
+    "trust.label": "Our Values",
     "how.step1.title": "Download & Explore",
     "how.step1.description": "Find hot spots near you. From cozy cafes in Riyadh to beach resorts in Jeddah.",
     "how.step2.title": "Collect XP",
@@ -79,7 +83,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.howItWorks": "كيف يعمل",
     "nav.forBusiness": "للشركات",
     "nav.joinWaitlist": "انضم للقائمة",
-    "hero.badge": "بالرياض",
+    "hero.badge": "قريباً بالرياض",
     "hero.headline1": "سيّر علينا",
     "hero.headline2": "وجمع مكافآت",
     "hero.description": "حوّل زياراتك ولحظاتك الحقيقية إلى نقاط خبرة ومستويات ومكافآت.",
@@ -88,7 +92,7 @@ const translations: Record<Language, Record<string, string>> = {
     "what.label": "فلسفتنا",
     "what.title": "أكثر من مجرد \"نقاط\"",
     "what.description": "\"سيّر\" ليس مجرد اسم تطبيق. إنه دعوة. يعني \"تعال عندنا\" أو مر علينا. نؤمن أن حضورك مهم. نبني عالماً يصنع حضورك فيه قيمة—لك، ولأماكنك المفضلة، ولمجتمعك.",
-    "what.showUp.title": "مر علينا",
+    "what.showUp.title": "سيّر علينا",
     "what.showUp.description": "سجل حضورك في الأماكن المحلية والفعاليات والجواهر المخفية في السعودية.",
     "what.engage.title": "تفاعل",
     "what.engage.description": "اترك تقييمات، شارك صوراً، وأكمل التحديات لرفع مستواك.",
@@ -96,6 +100,10 @@ const translations: Record<Language, Record<string, string>> = {
     "what.rewarded.description": "افتح امتيازات حصرية وهدايا ومكانة VIP في أماكنك المفضلة.",
     "how.title": "الرحلة",
     "how.subtitle": "من مستكشف إلى أسطورة محلية في ثلاث خطوات.",
+    "how.label": "الرحلة",
+    "audience.label": "لمين؟",
+    "audience.mainTitle": "مصمم للجميع",
+    "trust.label": "قيمنا",
     "how.step1.title": "حمّل واستكشف",
     "how.step1.description": "اكتشف الأماكن الحماسية قريباً منك. من مقاهي الرياض الدافئة إلى منتجعات جدة الشاطئية.",
     "how.step2.title": "اجمع النقاط",
@@ -163,8 +171,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";
     document.documentElement.lang = language;
     if (isRTL) {
+      document.documentElement.style.setProperty('--font-sans', "'Almarai', sans-serif");
+      document.documentElement.style.setProperty('--font-display', "'Almarai', sans-serif");
       document.body.style.fontFamily = "'Almarai', sans-serif";
     } else {
+      document.documentElement.style.setProperty('--font-sans', "'DM Sans', sans-serif");
+      document.documentElement.style.setProperty('--font-display', "'Outfit', sans-serif");
       document.body.style.fontFamily = "'DM Sans', sans-serif";
     }
   }, [language, isRTL]);

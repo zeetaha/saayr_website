@@ -255,7 +255,7 @@ export default function Home() {
         <div className="absolute inset-0 noise-overlay opacity-50" />
         <div className="container max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-20">
-            <span className="inline-block px-4 py-2 rounded-full bg-white text-primary font-semibold tracking-wider uppercase text-xs mb-6 shadow-sm">The Journey</span>
+            <span className="inline-block px-4 py-2 rounded-full bg-white text-primary font-semibold tracking-wider uppercase text-xs mb-6 shadow-sm">{t("how.label")}</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-5">{t("how.title")}</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("how.subtitle")}</p>
           </div>
@@ -290,8 +290,8 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2" />
         <div className="container max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold tracking-wider uppercase text-xs mb-6">Who It's For</span>
-            <h2 className="text-4xl md:text-5xl font-bold">Built for Everyone</h2>
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold tracking-wider uppercase text-xs mb-6">{t("audience.label")}</span>
+            <h2 className="text-4xl md:text-5xl font-bold">{t("audience.mainTitle")}</h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 md:gap-10">
@@ -332,7 +332,7 @@ export default function Home() {
       <AnimatedSection className="bg-white text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/20" />
         <div className="container max-w-5xl mx-auto px-4 relative z-10">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold tracking-wider uppercase text-xs mb-6">Our Values</span>
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold tracking-wider uppercase text-xs mb-6">{t("trust.label")}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-16">{t("trust.title")}</h2>
           <div className="grid md:grid-cols-3 gap-8">
              <TrustCard 
