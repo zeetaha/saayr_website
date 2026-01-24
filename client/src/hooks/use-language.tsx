@@ -63,7 +63,7 @@ const translations: Record<Language, Record<string, string>> = {
     "cta.description": "Be the first to know when we launch in your city. Early access members get a",
     "cta.boost": "Level 5 Boost",
     "cta.dayOne": "on day one.",
-    "footer.copyright": "All rights reserved. Made by Rawqan in Riyadh.",
+    "footer.copyright": "All rights reserved. Made with Chill in Riyadh.",
     "form.forYou": "For You",
     "form.forBusiness": "For Business",
     "form.emailPlaceholder": "Enter your email...",
