@@ -1,13 +1,14 @@
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { AnimatedSection, FadeIn } from "@/components/AnimatedSection";
 import { useLanguage } from "@/hooks/use-language";
-import { 
-  MapPin, 
-  Trophy, 
-  TrendingUp, 
-  Users, 
-  ShieldCheck, 
-  Heart, 
+import { Link } from "wouter";
+import {
+  MapPin,
+  Trophy,
+  TrendingUp,
+  Users,
+  ShieldCheck,
+  Heart,
   Store,
   Sparkles,
   Globe,
@@ -392,6 +393,12 @@ export default function Home() {
               <div className="text-sm font-semibold text-white">Google Play</div>
             </div>
           </a>
+        </div>
+        {/* Legal Links */}
+        <div className="flex justify-center gap-6 mt-8 relative z-10 text-sm">
+          <Link href="/privacy" className="hover:text-white transition-colors">{isRTL ? "سياسة الخصوصية" : "Privacy Policy"}</Link>
+          <Link href="/terms" className="hover:text-white transition-colors">{isRTL ? "الشروط والأحكام" : "Terms & Conditions"}</Link>
+          <Link href="/delete-account" className="hover:text-white transition-colors">{isRTL ? "حذف الحساب" : "Delete Account"}</Link>
         </div>
       </footer>
     </div>
