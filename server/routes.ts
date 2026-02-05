@@ -3,12 +3,28 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
+import { renderPrivacyPage } from "./templates/privacy";
+import { renderTermsPage } from "./templates/terms";
+import { renderDeleteAccountPage } from "./templates/delete-account";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  
+
+  // SSR routes for legal pages
+  app.get("/privacy", (_req, res) => {
+    res.status(200).set({ "Content-Type": "text/html" }).end(renderPrivacyPage());
+  });
+
+  app.get("/terms", (_req, res) => {
+    res.status(200).set({ "Content-Type": "text/html" }).end(renderTermsPage());
+  });
+
+  app.get("/delete-account", (_req, res) => {
+    res.status(200).set({ "Content-Type": "text/html" }).end(renderDeleteAccountPage());
+  });
+
   app.post(api.waitlist.create.path, async (req, res) => {
     try {
       const input = api.waitlist.create.input.parse(req.body);
