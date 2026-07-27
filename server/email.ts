@@ -17,7 +17,7 @@ export async function sendWaitlistNotification(email: string, role: string) {
 
   await transporter.sendMail({
     from,
-    to: "zeeshan@saayr.sa",
+    to: "zeeshan@saayr.sa, Abdulaziz@saayr.sa",
     subject: `New waitlist signup — ${role}`,
     text: `A new user joined the waitlist.\n\nEmail: ${email}\nRole: ${role}\nTime: ${new Date().toUTCString()}`,
     html: `
