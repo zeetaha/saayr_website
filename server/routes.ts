@@ -6,6 +6,7 @@ import { z } from "zod";
 import { renderPrivacyPage } from "./templates/privacy";
 import { renderTermsPage } from "./templates/terms";
 import { renderDeleteAccountPage } from "./templates/delete-account";
+import { sendWaitlistNotification } from "./email";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -36,6 +37,10 @@ export async function registerRoutes(
 
       const entry = await storage.createWaitlistEntry(input);
       res.status(201).json(entry);
+
+      sendWaitlistNotification(input.email, input.role).catch((err) =>
+        console.error("Failed to send waitlist notification email:", err)
+      );
     } catch (err) {
       if (err instanceof z.ZodError) {
         return res.status(400).json({
