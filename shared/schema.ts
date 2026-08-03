@@ -11,7 +11,9 @@ export const waitlistEntries = pgTable("waitlist_entries", {
 });
 
 // === BASE SCHEMAS ===
-export const insertWaitlistSchema = createInsertSchema(waitlistEntries).pick({
+export const insertWaitlistSchema = createInsertSchema(waitlistEntries, {
+  email: z.string().email("Please enter a valid email address"),
+}).pick({
   email: true,
   role: true,
 });
