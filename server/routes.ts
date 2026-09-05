@@ -6,12 +6,28 @@ import { z } from "zod";
 import { renderPrivacyPage } from "./templates/privacy";
 import { renderTermsPage } from "./templates/terms";
 import { renderDeleteAccountPage } from "./templates/delete-account";
+import { renderInvitePage } from "./templates/invite";
 import { sendWaitlistNotification } from "./email";
+
+// Apple Universal Links config. Must be served as application/json, with no
+// ".json" extension and no redirect (including no apex<->www redirect), or
+// iOS silently refuses to open saayr.sa links in the app.
+const APPLE_APP_SITE_ASSOCIATION = `{"applinks":{"details":[{"appIDs":["X4KTHW6XMR.com.saayr.app","X4KTHW6XMR.com.saayr.app.staging"],"components":[{"/":"/invite/*"}]}]}}`;
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+
+  app.get("/.well-known/apple-app-site-association", (_req, res) => {
+    res.status(200).set({ "Content-Type": "application/json" }).end(APPLE_APP_SITE_ASSOCIATION);
+  });
+
+  // Universal link fallback: opens in the SAAYR app when installed;
+  // anyone without the app (or on desktop) lands on this page instead.
+  app.get("/invite/:code", (_req, res) => {
+    res.status(200).set({ "Content-Type": "text/html" }).end(renderInvitePage());
+  });
 
   // SSR routes for legal pages
   app.get("/privacy", (_req, res) => {
