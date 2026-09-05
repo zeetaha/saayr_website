@@ -6,7 +6,6 @@ import { z } from "zod";
 import { renderPrivacyPage } from "./templates/privacy";
 import { renderTermsPage } from "./templates/terms";
 import { renderDeleteAccountPage } from "./templates/delete-account";
-import { renderLinksPage } from "./templates/links";
 import { sendWaitlistNotification } from "./email";
 
 export async function registerRoutes(
@@ -25,10 +24,6 @@ export async function registerRoutes(
 
   app.get("/delete-account", (_req, res) => {
     res.status(200).set({ "Content-Type": "text/html" }).end(renderDeleteAccountPage());
-  });
-
-  app.get("/links", (_req, res) => {
-    res.status(200).set({ "Content-Type": "text/html" }).end(renderLinksPage());
   });
 
   app.post(api.waitlist.create.path, async (req, res) => {
